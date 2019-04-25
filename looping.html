@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VueJS Practice</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="post in posts" :key="post.id">{{ post.title }}</li>
+		</ul>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el: '#app',
+			data : {
+				posts: [
+					{
+						id : 1,
+						title : "Post 1",
+						body: "Jklasdjklsajdksjdsakl"
+					},
+					{
+						id : 2,
+						title : "Post 2",
+						body: "Jklasdjklsajdksjdsakl"
+					},
+					{
+						id : 3,
+						title : "Post 3",
+						body: "Jklasdjklsajdksjdsakl"
+					},
+					{
+						id : 4,
+						title : "Post 4",
+						body: "Jklasdjklsajdksjdsakl"
+					},
+					{
+						id : 5,
+						title : "Post 5",
+						body: "Jklasdjklsajdksjdsakl"
+					}
+				]
+			}
+
+		});
+
+	</script>
+</body>
+</html>

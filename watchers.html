@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VueJS Practice</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div id="app">
+		<h1>You are {{ isActive ? "active" : "not active " }}</h1>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el: '#app',
+			data : {
+				isActive: false
+			},
+			watch:{
+				isActive: function(newValue){
+					if(newValue){
+						console.log("ACTIVE")
+					}else{
+						console.log("NOT ACTIVE")
+					}
+				}
+			}
+
+		});
+
+	</script>
+</body>
+</html>

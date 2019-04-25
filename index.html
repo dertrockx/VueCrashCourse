@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VueJS Practice</title>
+</head>
+<body>
+	<div id="app">
+		{{ message }}
+		{{ number }}
+		{{ number + 1}}
+		{{ message.split('').reverse('').join('') }}
+		<h3>
+			{{ isActive ? "Active" : "Not Active" }}
+		</h3>
+	</div>
+	<button onClick="change()">Change it</button>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el: '#app',
+			data : {
+				message : "Hello world",
+				number : 1,
+				isActive: true
+			}
+		});
+		let change = () => {
+			if (vm.isActive){
+				vm.isActive = false;
+			} else {
+				vm.isActive = true;
+			}
+		}
+	</script>
+</body>
+</html>

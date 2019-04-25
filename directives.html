@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VueJS Practice</title>
+</head>
+<body>
+	<div id="app">
+		<h1 @click="number++">Increase</h1>
+		<h1 @click="number--">Decrease</h1>
+		{{ number >= 0 ? number : "Error! Number should not be below zero" }}
+		<form @submit.prevent="number++">
+			<input type="submit" value="Yeah">
+		</form>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el: '#app',
+			data : {
+				number : 10
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VueJS Practice</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div id="app">
+		<h3>{{ time }}</h3>
+		<div class="progress">
+			<div class="progress-bar" role="progressbar" :style="{ width: progressWidth + '%' }" aria-valuemin="0" aria-valuemax="100">{{ progressWidth }}</div>
+		</div>
+		<button @click="start">Start timer</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el: '#app',
+			data : {
+				time : 60,
+				progressWidth: 100				
+			},
+			methods: {
+				async start(){
+					this.time = 60;
+					this.prgoressWidth = 100;
+					console.log("Starting countdown")
+					while(this.time > 0){
+						console.log(this.time);
+						await this.sleep(1000);
+						this.time--;
+						this.progressWidth = this.time / 60 * 100;
+					}
+				},
+				sleep(ms){
+					return new Promise(resolve => setTimeout(resolve, ms));
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>

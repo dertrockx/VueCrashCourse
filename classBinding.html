@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VueJS Practice</title>
+	<style type="text/css">
+		.active { 
+			color : green;
+		}
+		.notActive { 
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h3 :class="isActive ? 'active' : 'notActive'">
+			Text
+		</h3>
+		<button @click="change()">Change</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el: '#app',
+			data : {
+				isActive: true
+			}
+		});
+
+	</script>
+</body>
+</html>

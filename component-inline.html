@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VueJS Practice</title>
+</head>
+<body>
+	<div id="app">
+		<comp inline-template>
+			<h2>Hello</h2>
+		</comp>
+		<comp2 inline-template>
+			<h2 @click="display">{{ message }}</h2>
+		</comp2>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		Vue.component('comp',{
+
+		});
+		Vue.component('comp2', {
+			data(){
+				return {
+					message: "Hello"
+				}
+			},
+			methods: {
+				display(){
+					console.log("Yeah")
+				}
+			}
+		})
+		let vm = new Vue({
+			el: "#app"
+		})
+	</script>
+</body>
+</html>

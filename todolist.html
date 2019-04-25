@@ -1,0 +1,59 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>VueJS Practice</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div id="app">
+		<div class="container">
+			<h3>Todo List</h3>
+			<form class="form-inline" @submit.prevent="addNewItem">
+				<label class="sr-only" for="todo">New Item</label>
+				<input v-model="new_item" type="text" class="form-control" placeholder="New Item">
+				<button type="submit" class="btn btn-success mb-2">Add</button>
+			</form>
+			<ul class="list-group">
+				<li v-for="(todo, index) in todos" class="list-group-item" :data-id="todo.id" @click="deleteItem(todo.id)">{{ index+1 }}.) {{ todo.content }}</li>
+			</ul>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el: '#app',
+			data : {
+				last_key: 0,
+				new_item : "",
+				todos : [],
+
+			},
+			methods:{
+				addNewItem(){
+					this.todos.push({
+						id: this.last_key + 1,
+						content : this.new_item
+					});
+				},
+				deleteItem(id){
+					for(todo of this.todos){
+						if(todo.id === id){
+							// Pops todo item at index
+							var index = this.todos.indexOf(todo);
+							this.todos.splice(index, 1);
+						}
+					}
+				}
+			},
+			watch:{
+				todos: function(){
+					this.new_item = '';
+					this.last_key++;
+				}
+			}
+
+		});
+
+	</script>
+</body>
+</html>
